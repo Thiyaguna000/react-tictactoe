@@ -56,6 +56,8 @@ const Game = () => {
               axios.get(URL)
                 .then(res => {
                     console.log(res);
+                }).catch(err => {
+                    console.error(err);
                 })
             setLocation("https://maps.googleapis.com/maps/api/staticmap?=center="+pos.coords.latitude
             + "," + pos.coords.longitude + "&zoom=13&size=800*400&sensor=false");
