@@ -4,12 +4,14 @@ import "./Game.css";
 import TurnIndicator from "./TurnIndicator";
 import Winner, { checkWinner } from "./Winner";
 import Restart from "./Restart";
+import axios from 'axios';
 
 const Game = () => {
   const [board, setBoard] = useState(new Array(9).fill(null));
   const [isCross, setCross] = useState(false);
   const [winState, setWinner] = useState(null);
   const [canPlay, setCanPlay] = useState(true);
+  const [location,setLocation] = useState();
 
   const getIndicator = (isCross) => (isCross ? "X" : "O");
 
@@ -45,6 +47,23 @@ const Game = () => {
     }
   };
 
+  const handleLocation = () => {
+      if(navigator.geolocation){
+          navigator.geolocation.getCurrentPosition(pos => {
+              setLocation(pos);
+              const URL = 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+pos.coords.latitude
+              + ',' + pos.coords.longitude + '&sensor=false';
+              axios.get(URL)
+                .then(res => {
+                    console.log(res);
+                })
+            setLocation("https://maps.googleapis.com/maps/api/staticmap?=center="+pos.coords.latitude
+            + "," + pos.coords.longitude + "&zoom=13&size=800*400&sensor=false");
+          })
+
+      }
+  }
+
   return (
     <div className="board">
       <TurnIndicator indicator={getIndicator(isCross)} />
@@ -67,7 +86,12 @@ const Game = () => {
       </div>
         {winState && <Winner indicator={winState} />}
         {winState && <Restart onClick={restart} />}
+        <div>
+            Location: <button onClick={handleLocation}>Locate me!</button>
+            <img src = {location} alt = "Location"/>
+        </div>
     </div>
+    
   );
 };
 
