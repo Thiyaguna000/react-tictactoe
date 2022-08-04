@@ -1,9 +1,10 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Game from './components/Game';
 import Counter from "./components/Counter";
 import Speech from './components/Speech';
 import Recorder from './components/Recorder';
 import Home from './components/Home';
+import Todo from "./components/Todo/Todo";
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="counter" element={<Counter />} />
         <Route path="speech" element={<Speech />} />
         <Route path="recorder" element={<Recorder />} />
+        <Route path="todo" element={<Todo />} />
       </Routes>
     </div>
    
