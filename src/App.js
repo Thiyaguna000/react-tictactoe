@@ -5,6 +5,7 @@ import Speech from './components/Speech';
 import Recorder from './components/Recorder';
 import Home from './components/Home';
 import Todo from "./components/Todo/Todo";
+import Login from "./components/Login";
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="speech" element={<Speech />} />
         <Route path="recorder" element={<Recorder />} />
         <Route path="todo" element={<Todo />} />
+        <Route path="login" element={<Login />} />
       </Routes>
     </div>
    

@@ -21,6 +21,9 @@ const Home = () => {
         <li>
           <Link to="/todo">Todo</Link>
         </li>
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
       </ul>
     </div>
   );

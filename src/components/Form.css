@@ -1,0 +1,53 @@
+.wrapper{
+    padding: 3rem 1.75rem;
+}
+
+.container{
+    padding: 1.25rem;
+    width: auto;
+    display: block;
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0px 0 1px rgb(10 10 10 / 2%);
+}
+
+h1{
+    font-size: 2em;
+    border-bottom: 1px solid rgb(248, 248, 248);
+    margin-bottom: 25px;
+}
+
+.field{
+    margin-bottom: 0.75rem;
+}
+
+label{
+    color: #363636;
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.textbox{
+    box-sizing: border-box;
+    clear: both;
+    font-size: 1rem;
+    position: relative;
+    text-align: left;
+}
+
+.button{
+    background-color: #3298dc;
+    border-color: transparent;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.error{
+    color: red;
+}
